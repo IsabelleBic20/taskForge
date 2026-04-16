@@ -1,0 +1,59 @@
+# ===============================
+# .NET
+# ===============================
+bin/
+obj/
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build / Publish
+publish/
+out/
+
+# VS Code
+.vscode/
+
+# Logs
+*.log
+
+
+# Environment variables
+.env
+.env.*
+
+# Docker
+
+docker-compose.override.yml
+
+
+# OS files
+
+.DS_Store
+Thumbs.db
+
+
+# SQL Server local files (caso usar local)
+
+*.mdf
+*.ldf
+
+# Node (usar frontend)
+
+node_modules/
+
+# Coverage / Tests
+
+coverage/
+TestResults/
+
+# Rider / JetBrains (caso use)
+
+.idea/
+
+# Temp files
+
+*.tmp
+*.temp
