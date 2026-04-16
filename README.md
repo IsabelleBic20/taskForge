@@ -92,7 +92,6 @@ taskforge/
 
 - **[ARCHITECTURE.md](docs/ARCHITECTURE.md)** — System design and layers
 - **[DEVELOPMENT.md](docs/DEVELOPMENT.md)** — Setup, workflows, troubleshooting
-- **[CONTRIBUTING.md](CONTRIBUTING.md)** — Code standards and contribution
 - **[ADR-002: Domain Layer](docs/adr/002-Domain-Layer.md)** — Domain layer design
 - **[ADR-003: Application Layer](docs/adr/003-Application-Layer.md)** — Application layer design
 - **[ADR-004: API Layer](docs/adr/004-API-Layer.md)** — API layer design
