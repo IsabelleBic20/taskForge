@@ -1,129 +1,147 @@
 # TaskForge
 
-TaskForge is a backend project built with .NET 8 using Clean Architecture principles. The goal is to provide a scalable and maintainable foundation for managing users, tasks, and workflows.
+> A backend system for task management built with .NET 8 and Clean Architecture.
 
-This project is designed as a professional portfolio application, including Docker, SQL Server, and Entity Framework Core.
+TaskForge is a portfolio project demonstrating professional software architecture, clean code principles, and domain-driven design. It includes Docker containerization, SQL Server integration, and comprehensive architectural documentation.
+
+**Status:** In Development | **Version:** 1.0.0-alpha | **License:** MIT
+
+---
+
+## Why This Project?
+
+This project showcases:
+
+- **Clean Architecture** — Clear separation between layers (API, Application, Domain, Infrastructure)
+- **Domain-Driven Design** — Business logic isolated with entities and value objects
+- **Professional Patterns** — Repository pattern, dependency injection, SOLID principles
+- **Real-World Setup** — Docker, EF Core, SQL Server, Swagger
+- **Architectural Thinking** — Documented decisions via Architecture Decision Records (ADRs)
+
+Built to demonstrate how backend systems should be structured for scalability, testability, and maintainability.
+
+---
+
+## Quick Start
+
+```bash
+# 1. Clone
+git clone <repository-url> && cd taskforge
+
+# 2. Start services
+docker compose up --build
+
+# 3. Apply migrations
+dotnet ef database update -p TaskForge.Infrastructure -s TaskForge.API
+
+# 4. Access API
+# http://localhost:5000/swagger
+```
 
 ---
 
 ## Architecture
 
-The solution is organized into the following layers:
+Clean Architecture with 4 layers:
 
 ```
-TaskForge/
-├── TaskForge.API            # Presentation layer (HTTP endpoints)
-├── TaskForge.Application    # Application logic and use cases
-├── TaskForge.Domain         # Core entities and business rules
-├── TaskForge.Infrastructure # Data access and external services
+API Layer (HTTP endpoints)
+    ↓
+Application Layer (Use cases, orchestration)
+    ↓
+Domain Layer (Business logic, entities)
+    ↓
+Infrastructure Layer (Data access, persistence)
+```
+
+**See:** [docs/ARCHITECTURE.md](docs/ARCHITECTURE.md) for detailed explanation.
+
+---
+
+## Tech Stack
+
+- .NET 8, ASP.NET Core Web API
+- Entity Framework Core, SQL Server
+- Docker, Docker Compose
+- Swagger (OpenAPI 3.0)
+- C# + Clean Architecture
+
+---
+
+## Project Structure
+
+```
+taskforge/
+├── TaskForge.API/                # HTTP controllers
+├── TaskForge.Application/        # Use cases
+├── TaskForge.Domain/             # Entities & business rules
+├── TaskForge.Infrastructure/     # Data access
+└── docs/
+    ├── ARCHITECTURE.md
+    ├── DEVELOPMENT.md
+    └── adr/                      # Architecture Decision Records
+        ├── 002-Domain-Layer.md
+        ├── 003-Application-Layer.md
+        ├── 004-API-Layer.md
+        └── 005-Infrastructure-Layer.md
 ```
 
 ---
 
-## Technologies
+## Documentation
 
-* .NET 8
-* ASP.NET Core Web API
-* Entity Framework Core
-* SQL Server (Docker)
-* Docker and Docker Compose
-* Swagger (OpenAPI)
-
----
-
-## Getting Started
-
-### Prerequisites
-
-* .NET SDK 8.0
-* Docker
-* Docker Compose
+- **[ARCHITECTURE.md](docs/ARCHITECTURE.md)** — System design and layers
+- **[DEVELOPMENT.md](docs/DEVELOPMENT.md)** — Setup, workflows, troubleshooting
+- **[CONTRIBUTING.md](CONTRIBUTING.md)** — Code standards and contribution
+- **[ADR-002: Domain Layer](docs/adr/002-Domain-Layer.md)** — Domain layer design
+- **[ADR-003: Application Layer](docs/adr/003-Application-Layer.md)** — Application layer design
+- **[ADR-004: API Layer](docs/adr/004-API-Layer.md)** — API layer design
+- **[ADR-005: Infrastructure Layer](docs/adr/005-Infrastructure-Layer.md)** — Infrastructure layer design
 
 ---
 
-## Running the Project
+## Common Commands
 
-Start the application and database using Docker:
-
-```
-docker compose up --build
-```
-
----
-
-## Application Access
-
-* API: http://localhost:5000
-* Swagger: http://localhost:5000/swagger
+| Task | Command |
+|------|---------|
+| Build | `dotnet build` |
+| Test | `dotnet test` |
+| Run | `dotnet run -p TaskForge.API` |
+| Migration | `dotnet ef migrations add NAME -p TaskForge.Infrastructure -s TaskForge.API` |
+| Database | `dotnet ef database update -p TaskForge.Infrastructure -s TaskForge.API` |
+| Docker | `docker compose up --build` |
 
 ---
 
-## Database
+## Key Features
 
-The project uses SQL Server running in a Docker container.
-
-### Connection String (local development)
-
-```
-Server=localhost,1433;
-Database=TaskForgeDb;
-User Id=sa;
-Password=Your_password123;
-TrustServerCertificate=True;
-```
+- Clean Architecture with layer separation
+- Domain-driven design
+- Dependency injection & loose coupling
+- Repository pattern
+- Docker containerization
+- EF Core with SQL Server
+- Swagger documentation
+- Professional ADRs
 
 ---
 
-## Migrations
+## Setup
 
-### Create a migration
+**Prerequisites:** .NET 8.0+, Docker, Git
 
-```
-dotnet ef migrations add InitialCreate -p TaskForge.Infrastructure -s TaskForge.API
-```
-
-### Apply migrations
-
-```
-dotnet ef database update -p TaskForge.Infrastructure -s TaskForge.API
-```
+**See [DEVELOPMENT.md](docs/DEVELOPMENT.md) for:**
+- OS-specific setup (Windows/Mac/Linux)
+- Development workflows
+- Database management
+- Troubleshooting
 
 ---
 
-## Project Setup
+## License
 
-1. Clone the repository
-2. Run Docker
-3. Apply database migrations
-4. Access Swagger to test endpoints
+MIT
 
 ---
 
-## Features
-
-* Dockerized environment
-* SQL Server integration
-* Entity Framework Core setup
-* Initial database migration
-
-Planned features:
-
-* User management (CRUD)
-* Authentication with JWT
-* Task management
-* Authorization and roles
-
----
-
-## Project Goals
-
-* Demonstrate Clean Architecture in .NET
-* Provide a reusable backend template
-* Showcase containerized development
-* Serve as a professional portfolio project
-
-
-
-## Author
-
-Isabelle Bicudo
+**Last Updated:** 2026-04-16
